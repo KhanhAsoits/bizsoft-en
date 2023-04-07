@@ -6,11 +6,7 @@ const ChatScreen = (props) => {
 
     return (
         <WrapperLayout>
-            <Card.Title
-                title="chat screen"
-                subtitle="chat screen ne"
-                left={(props) => <Avatar.Icon {...props} icon="folder"/>}
-            />
+
         </WrapperLayout>
 
     )

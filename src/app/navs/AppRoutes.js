@@ -2,9 +2,9 @@ import {createMaterialBottomTabNavigator} from "@react-navigation/material-botto
 import {NavigationContainer} from '@react-navigation/native'
 import {observer} from "mobx-react";
 import HomeScreen from "../../views/screens/HomeScreen";
-import ScheduleScreen from "../../views/screens/ScheduleScreen";
+import ScheduleScreen from "../../views/screens/GradesScreen";
 import ChatScreen from "../../views/screens/ChatScreen";
-import StudentScreen from "../../views/screens/StudentScreen";
+import StudentScreen from "../../views/screens/LessonsScreen";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 const AppRoutes = (props) => {
@@ -19,13 +19,13 @@ const AppRoutes = (props) => {
                 case 'dashboard':
                     iconName = 'home-outline'
                     break;
-                case 'schedule':
+                case 'grades':
                     iconName = 'calendar-outline'
                     break;
                 case 'chat':
                     iconName = 'chatbox-outline'
                     break;
-                case 'student':
+                case 'classes':
                     iconName = 'person-outline'
             }
 
@@ -39,11 +39,9 @@ const AppRoutes = (props) => {
             >
                 <BottomTab.Screen name={'dashboard'}
                                   component={HomeScreen}></BottomTab.Screen>
-
-
-                <BottomTab.Screen name={'schedule'} component={ScheduleScreen}></BottomTab.Screen>
+                <BottomTab.Screen name={'grades'} component={ScheduleScreen}></BottomTab.Screen>
                 <BottomTab.Screen name={'chat'} component={ChatScreen}></BottomTab.Screen>
-                <BottomTab.Screen name={'student'} component={StudentScreen}></BottomTab.Screen>
+                <BottomTab.Screen name={'classes'} component={StudentScreen}></BottomTab.Screen>
             </BottomTab.Navigator>
         </NavigationContainer>
     )

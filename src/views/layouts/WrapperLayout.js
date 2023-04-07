@@ -1,7 +1,7 @@
 import {observer} from "mobx-react";
 import {KeyboardAvoidingView, Platform, SafeAreaView, StyleSheet, View} from "react-native";
 import {SW} from "../../app/utils/Contraints";
-import {PaddingTranslator} from "../../app/utils/PlatformTranslator";
+import {NativeBaseProvider} from "native-base";
 
 const WrapperLayout = (props) => {
 
@@ -10,24 +10,29 @@ const WrapperLayout = (props) => {
     if (props?.isAvoidKeyBoard) {
         return (
             <SafeAreaView style={{flex: 1}}>
-                <KeyboardAvoidingView style={styles.container}
-                                      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>{props.children}
-                </KeyboardAvoidingView>
+                <NativeBaseProvider>
+                    <KeyboardAvoidingView style={styles.container}
+                                          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+                        {props.children}
+                    </KeyboardAvoidingView>
+                </NativeBaseProvider>
             </SafeAreaView>
 
         )
     }
 
     return (
-        <SafeAreaView style={styles.container}>{props.children}</SafeAreaView>
+        <SafeAreaView style={styles.container}>
+            <NativeBaseProvider>
+                {props.children}
+            </NativeBaseProvider>
+        </SafeAreaView>
     )
 
 }
 const styles = StyleSheet.create({
     container: {
         width: SW,
-        paddingVertical: PaddingTranslator(20),
-        paddingHorizontal: PaddingTranslator(8),
         backgroundColor: 'transparent',
         flex: 1
     }
