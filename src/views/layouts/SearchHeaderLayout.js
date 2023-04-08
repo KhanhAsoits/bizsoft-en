@@ -5,8 +5,8 @@ import SearchHeader from "../../components/SearchHeader";
 const SearchHeaderLayout = (props) => {
     return (
         <Box flex={1} bgColor={'white'}>
-            <SearchHeader query={props.query} setQuery={props.setQuery} flex={1}/>
-            <Box flex={7}>
+            <SearchHeader query={props.query} setQuery={props.setQuery} flex={.1}/>
+            <Box flex={1}>
                 {props.children}
             </Box>
         </Box>

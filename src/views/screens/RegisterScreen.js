@@ -60,6 +60,7 @@ const RegisterScreen = (props) => {
         </WrapperLayout>
     )
 }
+
 const styles = StyleSheet.create({
     btnLogin: {
         width: SW - 100,
